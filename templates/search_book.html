@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+   <head></head>
+   <body>
+      
+   {%block content%}
+   <center>
+    <h1 style="color: white;">search a book</h1>
+    <form action="{{ request.path }}" method="post">
+        <label  style="color: white;" for="name">type the book name </label><br>
+        <input type="text" name="name" placeholder="name ?"><br>
+
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="search" class="btn btn-outline-light" href="{{url_for('search_book')}}">
+    </form>
+  <br>
+  <br>
+  {% for book in search_book %}
+   <div class="row row-cols-1 row-cols-md-4 g-4">
+     
+  >
+  >
+      <div class="card" style="width: 16rem;">
+        
+
+            <img src="/static/bookimg.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+               <h5 class="card-title">{{  book.name }}</h5>
+               <p class="card-text">ID: {{ book.id }}</p>
+               <p class="card-text">Author: {{ book.author }}</p>
+               <p class="card-text">Year published: {{ book.year_published }}</p>
+               <p class="card-text">Type: {{ book.type }}</p>
+               <p class="card-text"></p>
+               <div class="card-body"></div>
+            </div>
+         </div>
+         
+         
+            {% endfor %}
+         </div>
+      </div>
+   </center>
+
+      {%endblock%}
+
+
+		
+     
+      
+
+       
+   </body>
+</html>

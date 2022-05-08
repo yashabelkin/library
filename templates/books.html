@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+   <head></head>
+   <body>
+      
+   {%block content%}
+   <center>
+      <br>
+      <br>
+      <a href="/new_book" button type="button" class="btn btn-light">Add new book</a>
+  <br>
+  <br>
+
+   {%- for message in get_flashed_messages() %}
+   {{ message }}
+   {%- endfor %}
+   <div class="row row-cols-1 row-cols-md-4 g-4">
+      {% for book in show_books %}
+  >
+  >
+      <div class="card" style="width: 16rem;">
+        
+
+            <img src="/static/bookimg.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+               <h5 class="card-title">{{  book.name }}</h5>
+               <p class="card-text">ID: {{ book.id }}</p>
+               <p class="card-text">Author: {{ book.author }}</p>
+               <p class="card-text">Year published: {{ book.year_published }}</p>
+               <p class="card-text">Type: {{ book.type }}</p>
+               <p class="card-text"></p>
+               <div class="card-body"></div>
+            </div>
+         </div>
+         
+         
+            {% endfor %}
+         </div>
+      </div>
+   </center>
+
+      {%endblock%}
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+		
+     
+      
+
+       
+   </body>
+</html>

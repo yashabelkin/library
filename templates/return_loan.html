@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+<body>
+    {%block content%}
+    <center>
+        <br><br><br>
+    <h3 style="color: aliceblue;">return a book</h3>
+    <hr />
+
+    {%- for category, message in get_flashed_messages(with_categories = true) %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+    {%- endfor %}
+
+    <form action="{{ request.path }}" method="post">
+        <label style="color: aliceblue;" for="cust_id">customer ID </label><br>
+        <input type="text" name="cust_id" placeholder="cust id?"><br>
+        <label style="color: aliceblue;" for="book_id">book ID</label><br>
+        <input type="text" name="book_id" placeholder="book id?" /><br><br>
+        <input type="submit" value="return" class="btn btn-outline-light">
+    </form>
+</center>
+    {%endblock%}
+
+</body>
+
+</html>

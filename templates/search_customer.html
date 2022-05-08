@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+   <head></head>
+   <body>
+      
+   {%block content%}
+   {%- for category, message in get_flashed_messages(with_categories = true) %}
+   <div class="alert alert-danger">
+       {{ message }}
+   </div>
+   {%- endfor %}
+   <center>
+    <h1 style="color: white;">search a customer</h1>
+    <form action="{{ request.path }}" method="post">
+        <label  style="color: white;" for="name">type the customer name </label><br>
+        <input type="text" name="name" placeholder="name ?"><br>
+
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="search" class="btn btn-outline-light" href="{{url_for('search_customer')}}">
+    </form>
+  <br>
+  <br>
+  {% for customer in search_customer %}
+   <div class="row row-cols-1 row-cols-md-4 g-4">
+     
+  >
+  >
+      <div class="card" style="width: 16rem;">
+        
+
+            <img src="/static/profile.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+               <h5 class="card-title">{{  customer.name }}</h5>
+               <p class="card-text">ID: {{ customer.id }}</p>
+               <p class="card-text">City: {{ customer.city }}</p>
+               <p class="card-text">Age: {{ customer.age }}</p>
+               <p class="card-text"></p>
+               <div class="card-body"></div>
+            </div>
+         </div>
+         
+         
+            {% endfor %}
+         </div>
+      </div>
+   </center>
+
+      {%endblock%}
+
+
+		
+     
+      
+
+       
+   </body>
+</html>

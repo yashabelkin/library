@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+<html>
+
+<body>
+    {%block content%} 
+    <center>
+    <h1 style="color: aliceblue;">delete a customer</h1>
+    <hr />
+
+    {%- for category, message in get_flashed_messages(with_categories = true) %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+    {%- endfor %}
+
+    <form action="{{ request.path }}" method="post">
+        <label for="name"> customer name to delete? </label><br>
+        <input type="text" name="name" placeholder="name of the customer">
+        <input type="submit" value="Submit" />
+    </form>
+</center>
+    {%endblock%}
+</body>
+
+</html>

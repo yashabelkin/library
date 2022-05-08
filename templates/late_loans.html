@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+<body>
+
+    {%block content%}
+    <center>
+    <hr />
+    {%- for message in get_flashed_messages() %}
+    {{ message }}
+    {%- endfor %}
+   
+ 
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+ 
+    
+       {% for Books,Loans,Customers in show_loans %}
+       
+       <div class="card" style="width: 16rem;">
+          <img src="/static/late_loan.jpg" class="card-img-top" alt="">
+          <div class="card-body">
+             <h5 class="card-title">loan ID : {{Loans.loan_id}} </h5>
+             <p class="card-text">cusomer: {{ Customers.name }}</p>
+             <p class="card-text">Book name: {{ Books.name }} book ID: {{Books.id}}</p>
+             <p class="card-text">loan date: {{ Loans.loan_date }}</p>
+             <p class="card-text">loan status: {{ Loans.status }}</p>
+             <p class="card-text"></p>
+             <div class="card-body"></div>
+          </div>
+       </div>
+ 
+          {% endfor %}
+       </div>
+    </div>
+       </center>
+ 
+       {%endblock%}
+ </body>
+ 
+ </html>

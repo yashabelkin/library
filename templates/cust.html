@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+<body>
+
+   {%block content%}
+   <center>
+      <br>
+      <br>
+      <a href="/add_cust" button type="button" class="btn btn-light">Add new customer</a>
+   <hr />
+
+   {%- for message in get_flashed_messages() %}
+   {{ message }}
+   {%- endfor %}
+   
+   <div class="row row-cols-1 row-cols-md-4 g-4">
+   {% for customer in show_cust %}
+   >
+   >
+  
+      <div class="card" style="width: 16rem;">
+        
+
+            <img src="/static/profile.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+               <h5 class="card-title">{{ customer.name }}</h5>
+               <p class="card-text">ID: {{ customer.id }}</p>
+               <p class="card-text">City: {{ customer.city }}</p>
+               <p class="card-text">Age: {{ customer.age }}</p>
+               <p class="card-text"></p>
+               <div class="card-body"></div>
+            </div>
+         </div>
+         
+         
+            {% endfor %}
+         </div>
+      </div>
+   </center>
+
+      {%endblock%}
+</body>
+
+</html>

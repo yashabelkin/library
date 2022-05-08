@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+<body>
+ 
+    {%block content%} 
+    
+    <hr />
+    {%- for category, message in get_flashed_messages(with_categories = true) %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+    {%- endfor %}
+    <center>
+    <h1 style="color: white;">Add new nook</h1>
+    <form action="{{ request.path }}" method="post">
+        <label  style="color: white;" for="name"> name </label><br>
+        <input type="text" name="name" placeholder="name ?"><br>
+        <label style="color: white;" for="author">author</label><br>
+        <input type="text" name="author" placeholder="author ?" /><br>
+        <label style="color: white;" for="year_published">year published</label><br>
+        <input type="text" name='year_published' placeholder="year published ?"></textarea><br>
+        <br>
+        <label style="color: white;" for="cars">Type:</label>
+        <select name="type" id="type">
+          <option value="1">1 - ten days</option>
+          <option value="2">2 - five days</option>
+          <option value="3">3 - three days</option>
+           
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="add" class="btn btn-outline-light">
+    </form>
+</center>
+    {%endblock%}
+</body>
+
+</html>
